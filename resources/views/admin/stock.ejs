@@ -1,8 +1,7 @@
-
-  <div class="sidebar">
+<div class="sidebar">
     <div class="logo-details">
       <i class='bx bxl-c-plus-plus'></i>
-      <span class="logo_name">CodingLab</span>
+      <span class="logo_name">Admin</span>
     </div>
       <ul class="nav-links">
         <li>
@@ -18,27 +17,15 @@
           </a>
         </li>
         <li>
-          <a href="#">
-            <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Order list</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
+          <a href="/admin/analytic">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">Analytics</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Stock</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
             <i class='bx bx-book-alt' ></i>
-            <span class="links_name">Total order</span>
+            <span class="links_name">Profit</span>
           </a>
         </li>
         <li>
@@ -59,12 +46,7 @@
             <span class="links_name">Favrorites</span>
           </a>
         </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-cog' ></i>
-            <span class="links_name">Setting</span>
-          </a>
-        </li>
+        
         <li class="log_out">
           <a href="#">
             <i class='bx bx-log-out'></i>
@@ -77,7 +59,7 @@
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Dashboard</span>
+        <span class="dashboard">Stock Analysis Dashboard</span>
       </div>
       <div class="search-box">
         <input type="text" placeholder="Search...">
@@ -85,7 +67,7 @@
       </div>
       <div class="profile-details">
         <!--<img src="images/profile.jpg" alt="">-->
-        <span class="admin_name">Prem Shahi</span>
+        <span class="admin_name">Admin Doe</span>
         <i class='bx bx-chevron-down' ></i>
       </div>
     </nav>
@@ -108,7 +90,7 @@
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total Sales</div>
-            <div class="number"><%= Total%> </div>
+            <div class="number">Rs.<%= Total%> </div>
             <div class="indicator">
               <i class='bx bx-up-arrow-alt'></i>
               <span class="text">Up from yesterday</span>
@@ -130,7 +112,7 @@
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total Return</div>
-            <div class="number">11,086</div>
+            <div class="number"><%= Customer %></div>
             <div class="indicator">
               <i class='bx bx-down-arrow-alt down'></i>
               <span class="text">Down From Today</span>
@@ -171,24 +153,25 @@
                         Rs.<%= order.price %>
                     </td>
                 </tr>
+                
                 <% }) %>
                
                
             </tbody>
-        </table>
+        </table>     
+          </div>
+         <br>
+          
+          <div class="button"> 
+             <button id="btn" >click</button>
             
-            
-           
-         
-                
           </div>
          
-          <div class="button">
-            <a href="#">See All</a>
-          </div>
+          
+          
         </div>
         <div class="top-sales box">
-          <div class="title">Top Seling Product</div>
+          <div class="title">Top Selling Product</div>
           <ul class="top-sales-details">
             <li>
             <a href="#">
@@ -252,7 +235,7 @@
   </section>
 
   <script>
-   let sidebar = document.querySelector(".sidebar");
+let sidebar = document.querySelector(".sidebar");
 let sidebarBtn = document.querySelector(".sidebarBtn");
 sidebarBtn.onclick = function() {
   sidebar.classList.toggle("active");
@@ -261,6 +244,10 @@ sidebarBtn.onclick = function() {
 }else
   sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
 }
+
+
  </script>
 
 
+
+  

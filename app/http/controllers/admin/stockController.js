@@ -1,5 +1,8 @@
 const order = require("../../../models/order")
-const moment = require('moment')
+const user =  require("../../../models/user")
+
+const moment = require('moment');
+const { button } = require("noty");
 
 function stockController() {
     return { 
@@ -7,11 +10,21 @@ function stockController() {
         const result =  await order.count({});
         const val = await order.aggregate([{$group: { _id: null, total: {$sum: '$price'}}}]);
         const recentsale = await order.find({},{"username":1,"price":1,"status":1,"createdAt":1,"_id":0});
-        console.log(recentsale);
-            
-        res.render('admin/stock',{Count:result, Total: val[0].total,recentsale:recentsale, moment: moment});
+        const customer =  await user.count({});
+        const top = await order.distinct('items');
+        console.log(top)
+        
+        res.render('admin/stock',{Count:result, Total: val[0].total,recentsale:recentsale,Customer:customer, moment: moment});
+
+        
         }
-    }}
+        
+        
+    }
+    
+}
 
 module.exports = stockController
+
+
 

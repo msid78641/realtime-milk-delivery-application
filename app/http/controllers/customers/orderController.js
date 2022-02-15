@@ -19,7 +19,7 @@ function orderController () {
                 price
             })
             order.save().then(result => {
-                Order.populate(result, { path: 'customerId' },{ path: 'username' }, (err, placedOrder) => {
+                Order.populate(result, { path: 'customerId', }, (err, placedOrder) => {
                     // req.flash('success', 'Order placed successfully')
 
                     // Stripe payment
